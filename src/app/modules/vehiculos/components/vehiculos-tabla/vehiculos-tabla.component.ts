@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../../../../models/vehiculo';
+import { TotalPagarDTO } from '../../../../models/TotalPagarDTO';
 import { VehiculoService } from '../../../../services/vehiculo.service';
 import { Http } from '@angular/http';
 
@@ -10,14 +11,21 @@ import { Http } from '@angular/http';
 })
 export class VehiculoComponent implements OnInit {
 
-  title = 'Bienvenido al estacionamiento';
   vehiculosEstacionados : Array<Vehiculo>;
+  totalAPagar : Array<TotalPagarDTO>;
+  mensajeError: string;
 
-  constructor(private http: Http, private servicioService: VehiculoService) {
+  constructor(private http: Http, private vehiculoService: VehiculoService) {
     this.http.get('http://localhost:8087/estacionamiento/api/vehiculos').subscribe(resp => this.vehiculosEstacionados = resp.json());
   }
 
   ngOnInit() {
+  }
+
+  public hacerRetiro(vehiculo: Vehiculo) {
+    debugger;
+    this.vehiculoService.Salir(vehiculo.placa).subscribe(resp => this.totalAPagar = resp.json());
+    console.log(this.totalAPagar);
   }
 
 }
