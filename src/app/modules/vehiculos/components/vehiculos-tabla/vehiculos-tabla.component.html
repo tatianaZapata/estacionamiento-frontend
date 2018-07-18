@@ -1,4 +1,26 @@
 <div class="vehiculo">
   <h1>{{title}}</h1>
-  <h2>Subtitulo</h2>
+
+  <table class="table table-hover">
+    <thead class="text-warning">
+    <tr>
+      <th>Placa</th>
+      <th>Tipo de vehiculo</th>
+      <th>Fecha de ingreso</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehiculos of vehiculosEstacionados">
+        <td>{{ vehiculos.placa }}</td>
+        <td>{{ vehiculos.codigoTipoVehiculo }}</td>
+        <td>{{ vehiculos.fechaIngreso  | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        <td>
+          <button type="button" data-toggle="tooltip" title="Retirar vehiculo">
+            
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
