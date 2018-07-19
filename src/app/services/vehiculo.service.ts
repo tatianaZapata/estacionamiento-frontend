@@ -19,6 +19,6 @@ export class VehiculoService {
   }
    
   public Salir(placa : string): Observable<any>{
-    return this.http.put<any>("http://localhost:8087/estacionamiento/api/salir/" + placa, placa);
+    return this.http.put<any>("http://localhost:8087/estacionamiento/api/salir/" + placa, null);
   }
 }

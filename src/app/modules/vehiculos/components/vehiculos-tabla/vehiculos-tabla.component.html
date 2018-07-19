@@ -25,25 +25,32 @@
     </tbody>
   </table>
 
+  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalIngresar">
+      <span class="glyphicon glyphicon-export"></span>Ingresar vehículo
+  </button>
+
   <div class="modal fade" id="modalPrecio" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Resumen de factura</h4>
-          </div>
-          <div class="modal-body">
-            <p>Placa del vehículo: </p>
-            <p>Horas transcurridas: </p>
-            <p>Total a pagar: </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Resumen de factura</h4>
         </div>
-        
+        <div class="modal-body">
+          <p>Placa del vehículo: {{totalAPagar.placa}}</p>
+          <p>Horas transcurridas: {{totalAPagar.horasTranscurridas}}</p>
+          <p>Total a pagar: {{totalAPagar.totalPagar}} </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="pageRefresh()">Close</button>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="modalIngresar" role="dialog">
+    <app-vehiculos-form></app-vehiculos-form>
+  </div>
 
 </div>

@@ -1,3 +1,39 @@
-<p>
-  vehiculos-form works!
-</p>
+<div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Registro de vehículo</h4>
+    </div>
+    <div class="modal-body">
+
+      <form>
+        <div class="form-group">
+          <label for="placa">Placa</label>
+          <input type="text" class="form-control" id="placa" aria-describedby="placaHelp" placeholder="Ingrese placa">
+          <small id="placaHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="cilindraje">Cilindraje</label>
+          <input type="number" class="form-control" id="cilindraje" aria-describedby="cilindrajeHelp" placeholder="Ingrese placa">
+          <small id="cilindrajeHelp" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="tipoVehiculo">Tipo de vehículo</label>
+          <select class="form-control" id="tipoVehiculo">
+            <option>MOTO</option>
+            <option>CARRO</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </form>
+
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="pageRefresh()">Close</button>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 export class TotalPagarDTO {
-    constructor(
-        public placa: string, 
-        public horasTranscurridas: number,
-        public totalPagar: number
-    ){}
+    placa: string;
+    horasTranscurridas: number;
+    totalPagar: number;
+
+    constructor(){}
+    
 }
