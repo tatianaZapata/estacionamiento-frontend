@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { VehiculoComponent } from './modules/vehiculos/components/vehiculos-tabla/vehiculos-tabla.component';
 import { VehiculosFormComponent } from './modules/vehiculos/components/vehiculos-form/vehiculos-form.component';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HttpClientModule } from "@angular/common/http";
   imports: [
     BrowserModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehiculo } from '../../../../models/vehiculo';
+import { VehiculoService } from '../../../../services/vehiculo.service';
+import { FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-vehiculos-form',
@@ -7,9 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiculosFormComponent implements OnInit {
 
-  constructor() { }
+  public vehiculoForm: FormGroup;
+
+  public vehiculo: Vehiculo;
+
+  constructor(private formBuilder: FormBuilder,  private vehiculoService: VehiculoService) { }
 
   ngOnInit() {
+    this.initForm(this.vehiculo);
+  }
+
+  private initForm(vehiculo: Vehiculo) {
+    this.vehiculoForm = this.formBuilder.group({
+      placa: [undefined, Validators.required],
+      cilindraje: [undefined, Validators.required],
+      tipoVehiculo: [undefined, Validators.required]
+    });
+  }
+
+  public submit() {
+    const vehiculo = this.prepareDataToSend();
+    this.vehiculoService.Ingresar(vehiculo).subscribe(
+      res => {
+        console.log(res);
+        window.location.reload();
+      }, 
+      error => {
+        console.log(error);
+        alert(error.error);
+      });
+  }
+
+  private prepareDataToSend(): Vehiculo {
+    const formValue = this.vehiculoForm.value;
+    const vehiculo = {
+      placa: formValue.placa,
+      cilindraje: formValue.cilindraje,
+      codigoTipoVehiculo: formValue.tipoVehiculo
+    };
+    return vehiculo;
   }
 
 }

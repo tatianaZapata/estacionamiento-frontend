@@ -7,30 +7,30 @@
     </div>
     <div class="modal-body">
 
-      <form>
+      <form [formGroup]="vehiculoForm" (submit)="submit()">
         <div class="form-group">
-          <label for="placa">Placa</label>
-          <input type="text" class="form-control" id="placa" aria-describedby="placaHelp" placeholder="Ingrese placa">
-          <small id="placaHelp" class="form-text text-muted"></small>
+          <label>Placa</label>
+          <input type="text" class="form-control" formControlName="placa" placeholder="Ingrese placa" required>
+          <small *ngIf="vehiculoForm.get('placa').invalid" class="text-danger">El campo es requerido</small>
         </div>
         <div class="form-group">
-          <label for="cilindraje">Cilindraje</label>
-          <input type="number" class="form-control" id="cilindraje" aria-describedby="cilindrajeHelp" placeholder="Ingrese placa">
-          <small id="cilindrajeHelp" class="form-text text-muted"></small>
+          <label>Cilindraje</label>
+          <input type="number" class="form-control" formControlName="cilindraje" placeholder="Ingrese cilindraje" required>
+          <small *ngIf="vehiculoForm.get('cilindraje').invalid" class="text-danger">El campo es requerido</small>
         </div>
         <div class="form-group">
-          <label for="tipoVehiculo">Tipo de vehículo</label>
-          <select class="form-control" id="tipoVehiculo">
+          <label>Tipo de vehículo</label>
+          <select class="form-control" formControlName="tipoVehiculo">
             <option>MOTO</option>
             <option>CARRO</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Crear</button>
-      </form>
 
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="pageRefresh()">Close</button>
+        <div class="modal-footer">
+          <button type="submit" [disabled]="vehiculoForm.invalid" class="btn btn-primary">Crear</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

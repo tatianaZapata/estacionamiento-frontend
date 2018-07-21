@@ -1,11 +1,10 @@
 <div class="vehiculo">
-  <h1>{{title}}</h1>
-
+  
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
       <th>Placa</th>
-      <th>Tipo de vehiculo</th>
+      <th>Tipo de vehículo</th>
       <th>Fecha de ingreso</th>
       <th>Acciones</th>
     </tr>
@@ -25,8 +24,8 @@
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalIngresar">
-      <span class="glyphicon glyphicon glyphicon-road"></span> Ingresar vehículo
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalIngresar">
+      <span class="glyphicon glyphicon glyphicon-road "></span> Ingresar vehículo
   </button>
 
   <div class="modal fade" id="modalPrecio" role="dialog">
@@ -43,7 +42,7 @@
           <p>Total a pagar: {{totalAPagar.totalPagar}} </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="pageRefresh()">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="pageRefresh()">Aceptar</button>
         </div>
       </div>
     </div>
