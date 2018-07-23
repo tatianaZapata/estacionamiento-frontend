@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../../../../models/vehiculo';
 import { VehiculoService } from '../../../../services/vehiculo.service';
 import { FormBuilder, FormGroup, Validators, ValidatorFn } from '@angular/forms';
-import { Http } from '@angular/http';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-vehiculos-form',
@@ -38,7 +38,8 @@ export class VehiculosFormComponent implements OnInit {
       }, 
       error => {
         console.log(error);
-        alert(error.error);
+        //swal('titulo',mensaje,'tipo icono');
+        swal('Error',error.error,'error');
       });
   }
 
