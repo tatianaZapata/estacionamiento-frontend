@@ -1,0 +1,23 @@
+.navbar h2 {
+    color: black;
+}
+
+.navbar-inverse {
+    background-color: #ffc543;
+    border-color: #ffc543;
+}
+
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    margin-top: 2%;
+}
+
+h3 {
+    font-family: fantasy;
+}
+
+td {
+    padding-right: 20px;
+}

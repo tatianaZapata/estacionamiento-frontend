@@ -1,32 +1,33 @@
 <div class="vehiculo">
-  
+
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalIngresar">
+    <span class="glyphicon glyphicon glyphicon-road "></span> Ingresar vehículo
+  </button>
+
   <table class="table table-bordered table-striped">
     <thead>
-    <tr>
-      <th>Placa</th>
-      <th>Tipo de vehículo</th>
-      <th>Fecha de ingreso</th>
-      <th>Acciones</th>
-    </tr>
+      <tr>
+        <th>Placa</th>
+        <th>Tipo de vehículo</th>
+        <th>Fecha de ingreso</th>
+        <th>Acciones</th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let vehiculo of vehiculosEstacionados">
         <td>{{ vehiculo.placa }}</td>
         <td>{{ vehiculo.codigoTipoVehiculo }}</td>
-        <td>{{ vehiculo.fechaIngreso  | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+        <td>{{ vehiculo.fechaIngreso | date:'yyyy-MM-dd HH:mm:ss'}}</td>
         <td>
-          <button type="button" class="btn btn-warning" (click)="hacerRetiro(vehiculo)" 
-            data-toggle="modal" data-target="#modalPrecio">
-              <span class="glyphicon glyphicon-export"></span> Salir del estacionamiento
+          <button type="button" class="btn btn-warning" (click)="hacerRetiro(vehiculo)" data-toggle="modal" data-target="#modalPrecio">
+            <span class="glyphicon glyphicon-export"></span> Salir del estacionamiento
           </button>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalIngresar">
-      <span class="glyphicon glyphicon glyphicon-road "></span> Ingresar vehículo
-  </button>
+
 
   <div class="modal fade" id="modalPrecio" role="dialog">
     <div class="modal-dialog">
